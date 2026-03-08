@@ -19,11 +19,11 @@ const voluntarioSchema = joi.object({
 
 let voluntarios = [];
 
-app.get('/voluntarios', (req, res) => {
+app.get('/https://api-de-cadastro-66hv.onrender.com/voluntarios', (req, res) => {
   res.json(voluntarios);
 });
 
-app.post('/cadastrar-voluntario', (req, res) => {
+app.post('https://api-de-cadastro-66hv.onrender.com/cadastrar-voluntario', (req, res) => {
   const { error, value } = voluntarioSchema.validate(req.body);
 
   if (error) {
