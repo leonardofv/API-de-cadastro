@@ -35,6 +35,21 @@ app.post('/cadastrar-voluntario', (req, res) => {
 
   const { nome, email, telefone, mensagem  } = value;
 
+  const emailExistente = voluntarios.find(v => v.email === email);
+  const telefoneExistente = voluntarios.find(v => v.telefone === telefone);
+
+  if(emailExistente) {
+    return res.status(400).json({
+      message: "Email já cadastrado"
+    });
+  };
+
+  if(telefoneExistente) {
+    return res.status(400).json({
+      message: "Telefone já cadastrado"
+    });
+  };
+
   const novoCadastro = {
     id: voluntarios.length + 1,
     nome,
